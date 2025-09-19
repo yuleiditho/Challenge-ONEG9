@@ -1,11 +1,15 @@
 :root {
-    --color-primary: #4B69FD;
-    --color-secondary: #FFF9EB;
-    --color-tertiary: #C4C4C4;
-    --color-button: #fe652b;
-    --color-button-hover: #e55720;
-    --color-text: #444444;
+    --color-primary: #49448f;
+    --color-secondary: #d0ccee;
+    --color-tertiary: #8db1ff;
+    --color-button: #7285f0;
+    --color-button-hover: #bf9ff1;
+    --color-text: #2e2d2d;
     --color-white: #FFFFFF;
+    --color-error: #e74c3c;
+    --color-warning: #81730a;
+    --color-success: #27ae60;
+    --color-alert: #1a7dbe;
 }
 
 /* Estilos generales */
@@ -13,6 +17,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
@@ -21,6 +26,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Inter", serif;
 }
 
 .main-content {
@@ -28,6 +34,7 @@ body {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    max-width: 1200px;
 }
 
 /* Banner */
@@ -37,6 +44,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 40px 0 0;
+    flex-direction: column;
 }
 
 /* Sección de entrada */
@@ -59,6 +67,7 @@ body {
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
+    margin-bottom: 20px;
 }
 
 .section-title {
@@ -80,28 +89,19 @@ body {
 }
 
 .input-name {
-    width: 100%;
-    padding: 10px;
+    width: 70%;
+    padding: 15px;
     border: 2px solid #000;
     border-radius: 25px 0 0 25px;
     font-size: 16px;
+    font-family: "Inter", serif;
 }
 
 .button-container {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     justify-content: center;
-}
-
-/* Estilos de entrada de texto */
-.input-title {
-    flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #333;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
 }
 
 /* Estilos de botón */
@@ -113,12 +113,15 @@ button {
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .button-add {
     background-color: var(--color-tertiary);
     color: var(--color-text);
     border-radius: 0 25px 25px 0;
+    width: 30%;
+    font-weight: 600;
 }
 
 .button-add:hover {
@@ -126,37 +129,217 @@ button {
 }
 
 /* Listas */
-ul {
-    list-style-type: none;
-    color: var(--color-text);
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
+.name-list {
+    width: 100%;
+    max-width: 600px;
     margin: 20px 0;
 }
 
-.result-list {
-    margin-top: 15px;
-    color: #05DF05;
-    font-size: 22px;
-    font-weight: bold;
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-tertiary);
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list-item span {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    color: var(--color-text);
+}
+
+.empty-message {
     text-align: center;
+    color: var(--color-text);
+    padding: 20px;
+    font-weight: 600;
+}
+
+.delete-btn {
+    padding: 5px 15px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #e60000;
 }
 
 /* Botón de sortear título */
 .button-draw {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    padding: 10px 40px;
+    padding: 15px 40px;
     color: var(--color-white);
     background-color: var(--color-button);
     font-size: 16px;
 }
 
 .button-draw img {
-    margin-right: 40px;
+    margin-right: 15px;
 }
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+    transform: translateY(-2px);
+}
+
+.result-container {
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeIn 1s;
+}
+
+.result-title {
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.result-value {
+    font-size: 28px;
+    color: var(--color-primary);
+    font-weight: bold;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Mensajes */
+.mensaje {
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    animation: fadeIn 0.5s;
+}
+
+.error {
+    background-color: #ffdddd;
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+}
+
+.alert {
+    background-color: #ddf4ff;
+    color: var(--color-alert);
+    border: 1px solid var(--color-alert);
+}
+
+.warning {
+    background-color: #fff3dd;
+    color: var(--color-warning);
+    border: 1px solid var(--color-warning);
+}
+
+.success {
+    background-color: #ddffdd;
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 36px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .input-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .input-name {
+        width: 100%;
+        border-radius: 25px;
+        margin-bottom: 10px;
+    }
+    
+    .button-add {
+        width: 100%;
+        border-radius: 25px;
+    }
+    
+    .list-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* Mejoras para el enfoque y accesibilidad */
+.input-name:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(75, 105, 253, 0.3);
+}
+
+.button-add:focus,
+.button-draw:focus,
+.delete-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(75, 105, 253, 0.5);
+}
+
+/* Mejor contraste para mensajes */
+.mensaje {
+    font-weight: 600;
+}
+
+.button-reiniciar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4B69FD;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+
+.button-reiniciar:hover {
+    background-color: #3a56e4;
 }
