@@ -1,16 +1,9 @@
 # Challenge - Amigo Secreto
 
-<p align="center">
-  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
-    <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5">
-  </a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
-    <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3">
-  </a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
-  </a>
-</p>
+![HTML5](https://img.shields.io/badge/-HTML5-black?logo=HTML5)
+![CSS](https://img.shields.io/badge/-CSS-black?logo=CSS)
+![javascirpt](https://img.shields.io/badge/-Javascript-black?logo=javascript)
+![Github](https://img.shields.io/badge/-Github-black?logo=Github)
 
 ## Índice
 
